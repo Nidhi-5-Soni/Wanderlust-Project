@@ -6,7 +6,7 @@ const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
 // const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
-const dbUrl=process.env.ATLASDB_URL
+const dbUrl=process.env.ATLASDB_URL;
 const Listing=require("./models/listing.js");
 const path=require("path");
 const methodOverride=require("method-override");
@@ -114,6 +114,8 @@ app.use((err,req,res,next)=>{
     // res.status(statusCode).send(message);
 //     res.send("something went wrong");
 });
-app.listen(8080,()=>{
-    console.log("server is listening to port 8080");
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
