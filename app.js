@@ -115,7 +115,9 @@ app.use((err,req,res,next)=>{
 //     res.send("something went wrong");
 });
 const port = process.env.PORT || 8080;
-
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 app.listen(port, () => {
     console.log("server is listening to port 8080");
 });
