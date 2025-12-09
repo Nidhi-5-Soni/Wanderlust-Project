@@ -24,6 +24,7 @@ const flash=require("connect-flash");
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
 const User=require("./models/user.js");
+
 app.use((req, res, next) => {
     res.locals.search = "";
     next();
@@ -88,6 +89,9 @@ app.use((req,res,next)=>{
 //     let registeredUser=await User.register(fakeUser,"helloworld");
 //     res.send(registeredUser);
 // });
+app.get("/", (req,res)=>{
+    res.redirect("/listings");
+});
 
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
@@ -115,9 +119,6 @@ app.use((err,req,res,next)=>{
 //     res.send("something went wrong");
 });
 const port = process.env.PORT || 8080;
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
 app.listen(port, () => {
     console.log("server is listening to port 8080");
 });
