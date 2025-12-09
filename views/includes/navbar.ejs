@@ -161,6 +161,27 @@
     .auth-section .nav-link {
       padding: 7px 12px;
     }
+    .search-wrapper form {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: center;
+    width: 100%;
+  }
+
+  .search-inp {
+    flex: 1 1 auto; /* Grow to fill available space */
+    max-width: 260px;
+  }
+
+  .search-btn {
+    flex-shrink: 0; /* Prevent button from shrinking */
+    margin-left: 6px;
+  }
+
+  /* Auth buttons full width */
+  .auth-section .nav-link {
+    text-align: center;
+  }
   }
 </style>
 
