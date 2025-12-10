@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
   .search-btn{
     background-color: #fe424d;
     color:#fff;
@@ -97,6 +97,159 @@
           <a class="nav-link" href="/logout"><b>Logout</b></a>
        <% } %>
       </div>
+    </div>
+  </div>
+</nav> -->
+<style>
+  /* ---------- DESKTOP CSS ---------- */
+
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .search-btn i {
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
+  }
+
+
+
+  /* ------------------------------------------
+     ---------- MOBILE CSS (<768px) ----------
+     ------------------------------------------ */
+  @media (max-width: 768px) {
+
+    /* Center nav content */
+    #navbarNavAltMarkup {
+      text-align: center;
+    }
+
+    .navbar-nav {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Search bar full width */
+    form.d-flex {
+      width: 100%;
+      justify-content: center !important;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .search-inp {
+      width: 70% !important;
+      max-width: 240px !important;
+      padding: 0.4rem 1rem !important;
+      font-size: 0.9rem !important;
+    }
+
+    .search-btn {
+      padding: 0.35rem 0.8rem !important;
+      font-size: 0.85rem !important;
+    }
+
+
+
+    /* ---------- AUTH SECTION FIX ---------- */
+    .auth-section {
+      width: 100%;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .auth-section .nav-link {
+      width: 90%;
+      text-align: center;
+      padding: 10px 0;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .navbar-nav.ms-auto {
+      width: 100%;
+      justify-content: center !important;
+    }
+  }
+</style>
+
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- Left side links -->
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+
+      <!-- Search bar -->
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search" action="/listings" method="GET">
+          <input 
+            class="form-control me-2 search-inp" 
+            type="search" 
+            name="search"
+            placeholder="Search Destinations"
+            value="<%= search || '' %>"
+          />
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>Search
+          </button>
+        </form>
+      </div>
+
+
+      <!-- Auth section wrapped -->
+      <div class="navbar-nav ms-auto auth-section">
+
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+
+        <% if (!currUser) { %>
+          <a class="nav-link active" href="/signup"><b>SignUp</b></a>
+          <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %>
+
+        <% if (currUser) { %>
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <% } %>
+
+      </div>
+
     </div>
   </div>
 </nav>
